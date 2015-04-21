@@ -1,7 +1,8 @@
 # Python
 
 These are docker images for Python running on an
-[Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/)
+[Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/).
+The cuurrent container size is ```215.7 MB```
 
 
 ## Usage
