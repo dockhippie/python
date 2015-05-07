@@ -8,10 +8,7 @@ The cuurrent container size is ```215.7 MB```
 ## Usage
 
 ```
-docker run -ti --name python webhippie/python:latest bash
-
-# Execute this for further available commands
-docker exec -ti python manage help
+docker run -ti --name python webhippie/python:latest
 ```
 
 
@@ -20,18 +17,6 @@ docker exec -ti python manage help
 * [latest](https://github.com/dockhippie/python/tree/master)
   available as ```webhippie/python:latest``` at
   [Docker Hub](https://registry.hub.docker.com/u/webhippie/python/)
-
-
-## Available management commands
-
-```bash
-Usage: manage <command> [<args>]
-
-Some useful manage commands are:
-   bash      Start a shell on container
-   commands  List all available sub commands
-   console   Start an interactive console
-```
 
 
 ## Contributing
