@@ -12,6 +12,5 @@ RUN apk update && \
 
 ADD rootfs /
 
-RUN mkdir /app
 WORKDIR /app
 CMD ["bash"]
