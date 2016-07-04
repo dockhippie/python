@@ -6,15 +6,6 @@ These are docker images for [Python](https://www.python.org) running on an
 [Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/).
 
 
-## Usage
-
-```bash
-docker run -ti \
-  --name python \
-  webhippie/python:latest
-```
-
-
 ## Versions
 
 * [latest](https://github.com/dockhippie/python/tree/master)
@@ -22,9 +13,19 @@ docker run -ti \
   [Docker Hub](https://registry.hub.docker.com/u/webhippie/python/)
 
 
+## Volumes
+
+* /srv/app
+
+
+## Ports
+
+* None
+
+
 ## Available environment variables
 
-None
+**None**
 
 
 ## Inherited environment variables
@@ -59,5 +60,5 @@ MIT
 ## Copyright
 
 ```
-Copyright (c) 2015 Thomas Boerger <http://www.webhippie.de>
+Copyright (c) 2015-2016 Thomas Boerger <http://www.webhippie.de>
 ```
