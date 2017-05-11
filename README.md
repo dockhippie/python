@@ -30,9 +30,7 @@ These are docker images for [Python](https://www.python.org) running on an [Alpi
 
 ## Inherited environment variables
 
-```bash
-ENV CRON_ENABLED false
-```
+* [webhippie/alpine](https://github.com/dockhippie/alpine#available-environment-variables)
 
 
 ## Contributing
