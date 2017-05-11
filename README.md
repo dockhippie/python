@@ -8,6 +8,8 @@ These are docker images for [Python](https://www.python.org) running on an [Alpi
 ## Versions
 
 * [latest](https://github.com/dockhippie/python/tree/master) available as ```webhippie/python:latest``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/python/)
+* [3](https://github.com/dockhippie/python/tree/3) available as ```webhippie/python:3``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/python/)
+* [2](https://github.com/dockhippie/python/tree/2) available as ```webhippie/python:2``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/python/)
 
 
 ## Volumes
@@ -22,8 +24,9 @@ These are docker images for [Python](https://www.python.org) running on an [Alpi
 
 ## Available environment variables
 
-**None**
+```bash
 
+```
 
 ## Inherited environment variables
 
