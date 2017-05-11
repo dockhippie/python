@@ -9,8 +9,7 @@ RUN apk update && \
     build-base \
     python3-dev \
     python3 \
-    py3-pip \
-    py3-setuptools && \
+    py3-pip && \
   rm -rf /var/cache/apk/*
 
 ADD rootfs /
