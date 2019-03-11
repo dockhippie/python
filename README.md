@@ -1,5 +1,6 @@
 # Python
 
+[![Build Status](https://cloud.drone.io/api/badges/dockhippie/python/status.svg)](https://cloud.drone.io/dockhippie/python)
 [![](https://images.microbadger.com/badges/image/webhippie/python.svg)](https://microbadger.com/images/webhippie/python "Get your own image badge on microbadger.com")
 
 These are docker images for [Python](https://www.python.org) running on an [Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/).
@@ -7,14 +8,12 @@ These are docker images for [Python](https://www.python.org) running on an [Alpi
 
 ## Versions
 
-* [latest](https://github.com/dockhippie/python/tree/master) available as ```webhippie/python:latest``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/python/)
-* [3](https://github.com/dockhippie/python/tree/3) available as ```webhippie/python:3``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/python/)
-* [2](https://github.com/dockhippie/python/tree/2) available as ```webhippie/python:2``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/python/)
+* [latest](./latest) available as `webhippie/python:latest`
 
 
 ## Volumes
 
-* /srv/app
+* /srv/www
 
 
 ## Ports
@@ -27,6 +26,7 @@ These are docker images for [Python](https://www.python.org) running on an [Alpi
 ```bash
 
 ```
+
 
 ## Inherited environment variables
 
@@ -51,5 +51,5 @@ MIT
 ## Copyright
 
 ```
-Copyright (c) 2015-2017 Thomas Boerger <http://www.webhippie.de>
+Copyright (c) 2015 Thomas Boerger <http://www.webhippie.de>
 ```
