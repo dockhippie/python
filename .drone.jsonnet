@@ -10,12 +10,20 @@ local name = 'webhippie/python';
   pipeline.build(name, 'v3.7', '3.7', 'arm32v6'),
   pipeline.build(name, 'v3.7', '3.7', 'arm64v8'),
   pipeline.manifest('v3.7', '3.7', ['amd64', 'arm32v6', 'arm64v8']),
+  pipeline.build(name, 'v3.6', '3.6', 'amd64'),
+  pipeline.build(name, 'v3.6', '3.6', 'arm32v6'),
+  pipeline.build(name, 'v3.6', '3.6', 'arm64v8'),
+  pipeline.manifest('v3.6', '3.6', ['amd64', 'arm32v6', 'arm64v8']),
+  pipeline.build(name, 'v3.5', '3.5', 'amd64'),
+  pipeline.build(name, 'v3.5', '3.5', 'arm32v6'),
+  pipeline.build(name, 'v3.5', '3.5', 'arm64v8'),
+  pipeline.manifest('v3.5', '3.5', ['amd64', 'arm32v6', 'arm64v8']),
   pipeline.build(name, 'v2.7', '2.7', 'amd64'),
   pipeline.build(name, 'v2.7', '2.7', 'arm32v6'),
   pipeline.build(name, 'v2.7', '2.7', 'arm64v8'),
   pipeline.manifest('v2.7', '2.7', ['amd64', 'arm32v6', 'arm64v8']),
-  pipeline.microbadger(['latest', '3.7', '2.7']),
-  pipeline.downstream(['latest', '3.7', '2.7'], [
+  pipeline.microbadger(['latest', '3.7', '3.6', '3.5', '2.7']),
+  pipeline.downstream(['latest', '3.7', '3.6', '3.5', '2.7'], [
     'dockhippie/pretalx',
   ]),
 ]
