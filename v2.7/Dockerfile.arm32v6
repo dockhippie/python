@@ -22,7 +22,6 @@ RUN apk update && \
   rm -rf /tmp/Python-2.7.16 && \
   curl -sLo - https://bootstrap.pypa.io/get-pip.py | python && \
   pip install -U pip tox && \
-  apk del expat-dev openssl-dev zlib-dev ncurses-dev bzip2-dev gdbm-dev sqlite-dev libffi-dev readline-dev linux-headers && \
   rm -rf /var/cache/apk/*
 
 COPY ./overlay ./overlay-arm32v6 /

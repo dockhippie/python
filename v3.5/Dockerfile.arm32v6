@@ -27,7 +27,6 @@ RUN apk update && \
   cd && \
   rm -rf /tmp/Python-3.5.7 && \
   pip install -U pip tox && \
-  apk del expat-dev openssl-dev zlib-dev ncurses-dev bzip2-dev xz-dev sqlite-dev libffi-dev tcl-dev linux-headers gdbm-dev readline-dev && \
   rm -rf /var/cache/apk/*
 
 COPY ./overlay ./overlay-arm32v6 /
