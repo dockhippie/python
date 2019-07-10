@@ -13,7 +13,7 @@ These are docker images for [Python](https://www.python.org) running on an [Alpi
 
 ## Volumes
 
-* /srv/www
+* /srv/app
 
 
 ## Ports
