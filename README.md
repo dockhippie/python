@@ -9,6 +9,10 @@ These are docker images for [Python](https://www.python.org) running on an [Alpi
 ## Versions
 
 * [latest](./latest) available as `webhippie/python:latest`
+* [3.7](./v3.7) available as `webhippie/python:3.7`
+* [3.6](./v3.6) available as `webhippie/python:3.6`
+* [3.5](./v3.5) available as `webhippie/python:3.5`
+* [2.7](./v2.7) available as `webhippie/python:2.7`
 
 
 ## Volumes
