@@ -1,27 +1,22 @@
-FROM webhippie/alpine:latest-arm32v6
-
-LABEL maintainer="Thomas Boerger <thomas@webhippie.de>" \
-  org.label-schema.name="Python" \
-  org.label-schema.version="2.7" \
-  org.label-schema.vendor="Thomas Boerger" \
-  org.label-schema.schema-version="1.0"
+FROM webhippie/alpine:latest-arm
 
 WORKDIR /srv/app
-ENTRYPOINT ["/usr/bin/entrypoint"]
-CMD ["bash"]
+
+# renovate: datasource=github-tags depName=python/cpython
+ENV PYTHON_VERSION=v2.7.18
 
 RUN apk update && \
   apk upgrade && \
   apk add build-base git expat-dev openssl-dev zlib-dev ncurses-dev bzip2-dev gdbm-dev sqlite-dev libffi-dev readline-dev linux-headers && \
-  curl -sLo - https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tgz | tar -xzf - -C /tmp && \
-  cd /tmp/Python-2.7.16 && \
+  curl -sLo - https://www.python.org/ftp/python/${PYTHON_VERSION#v}/Python-${PYTHON_VERSION#v}.tgz | tar -xzf - -C /tmp && \
+  cd /tmp/Python-${PYTHON_VERSION#v} && \
   ./configure --prefix=/usr --enable-shared --with-threads --enable-ipv6 --with-system-ffi --with-system-expat --with-system-zlib --enable-unicode=ucs4 && \
   make && \
   make install && \
   cd && \
-  rm -rf /tmp/Python-2.7.16 && \
-  curl -sLo - https://bootstrap.pypa.io/get-pip.py | python && \
+  rm -rf /tmp/Python-${PYTHON_VERSION#v} && \
+  curl -sLo - https://bootstrap.pypa.io/pip/2.7/get-pip.py | python && \
   pip install -U pip tox && \
   rm -rf /var/cache/apk/*
 
-COPY ./overlay ./overlay-arm32v6 /
+COPY ./overlay /

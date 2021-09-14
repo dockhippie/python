@@ -1,18 +1,10 @@
-FROM webhippie/alpine:latest-arm32v6
-
-LABEL maintainer="Thomas Boerger <thomas@webhippie.de>" \
-  org.label-schema.name="Python" \
-  org.label-schema.version="latest" \
-  org.label-schema.vendor="Thomas Boerger" \
-  org.label-schema.schema-version="1.0"
+FROM webhippie/alpine:latest-arm
 
 WORKDIR /srv/app
-ENTRYPOINT ["/usr/bin/entrypoint"]
-CMD ["bash"]
 
 RUN apk update && \
   apk upgrade && \
   apk add build-base openssl-dev libffi-dev git python3-dev python3 py3-pip py3-tox && \
   rm -rf /var/cache/apk/*
 
-COPY ./overlay ./overlay-arm32v6 /
+COPY ./overlay /
