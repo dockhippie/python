@@ -1,9 +1,9 @@
-FROM webhippie/alpine:latest-amd64
+FROM webhippie/alpine:latest-arm64
 
 WORKDIR /srv/app
 
 # renovate: datasource=github-tags depName=python/cpython
-ENV PYTHON_VERSION=v3.7.12
+ENV PYTHON_VERSION=v3.5.10
 
 RUN apk update && \
   apk upgrade && \
@@ -13,15 +13,15 @@ RUN apk update && \
   ./configure --prefix=/usr --disable-rpath --enable-ipv6 --enable-loadable-sqlite-extensions --enable-shared --with-lto --with-computed-gotos --with-dbmliborder=gdbm:ndbm --with-system-expat --with-system-ffi --with-threads && \
   make && \
   make install && \
-  ln -sf /usr/bin/python3.7 /usr/bin/python && \
-  ln -sf /usr/bin/pip3.7 /usr/bin/pip && \
-  ln -sf /usr/bin/python3.7m-config /usr/bin/python-config && \
-  ln -sf /usr/bin/pydoc3.7 /usr/bin/pydoc && \
-  ln -sf /usr/bin/easy_install-3.7 /usr/bin/easy_install && \
-  ln -sf /usr/bin/idle3.7 /usr/bin/idle && \
+  ln -sf /usr/bin/python3.5 /usr/bin/python && \
+  ln -sf /usr/bin/pip3.5 /usr/bin/pip && \
+  ln -sf /usr/bin/python3.5m-config /usr/bin/python-config && \
+  ln -sf /usr/bin/pydoc3.5 /usr/bin/pydoc && \
+  ln -sf /usr/bin/easy_install-3.5 /usr/bin/easy_install && \
+  ln -sf /usr/bin/idle3.5 /usr/bin/idle && \
   cd && \
   rm -rf /tmp/Python-${PYTHON_VERSION#v} && \
-  curl -sLo - https://bootstrap.pypa.io/get-pip.py | python && \
+  curl -sLo - https://bootstrap.pypa.io/pip/3.5/get-pip.py | python && \
   pip install -U pip tox && \
   rm -rf /var/cache/apk/*
 

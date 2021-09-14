@@ -1,0 +1,36 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "github>webhippie/renovate:docker",
+        "docker:pinDigests",
+        "default:automergeDigest"
+    ],
+    "ignorePaths": [
+        "archive/"
+    ],
+    "packageRules": [{
+            "datasources": [
+                "docker"
+            ],
+            "updateTypes": [
+                "major",
+                "minor"
+            ],
+            "enabled": false
+        },
+        {
+            "description": "Update only python patch version",
+            "datasources": [
+                "github-tags"
+            ],
+            "updateTypes": [
+                "major",
+                "minor"
+            ],
+            "matchPackageNames": [
+                "python/cpython"
+            ],
+            "enabled": false
+        }
+    ]
+}
