@@ -20,10 +20,6 @@ jobs:
             tag: 2.7
             arm64: true
             arm: true
-          - folder: v3.5
-            tag: 3.5
-            arm64: true
-            arm: true
           - folder: v3.6
             tag: 3.6
             arm64: true
