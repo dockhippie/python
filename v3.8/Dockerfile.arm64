@@ -3,7 +3,7 @@ FROM webhippie/alpine:latest-arm64@sha256:a312f819b3338ddbcfd7e39e2cce14780e2edd
 WORKDIR /srv/app
 
 # renovate: datasource=github-tags depName=python/cpython
-ENV PYTHON_VERSION=v3.8.12
+ENV PYTHON_VERSION=v3.8.13
 
 RUN apk update && \
   apk upgrade && \
