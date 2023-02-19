@@ -1,19 +1,19 @@
 ---
-name: latest
+name: v3.8
 
 "on":
   push:
     branches:
       - master
     paths:
-      - latest/*
-      - .github/workflows/docker.yml
+      - v3.8/*
+      - .github/workflows/v3.8.yml
   pull_request:
     branches:
       - master
     paths:
-      - latest/*
-      - .github/workflows/docker.yml
+      - v3.8/*
+      - .github/workflows/v3.8.yml
   workflow_dispatch:
 
 jobs:
@@ -67,42 +67,42 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: latest/
-          file: latest/Dockerfile.amd64
+          context: v3.8/
+          file: v3.8/Dockerfile.amd64
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/python:latest-amd64
-            quay.io/webhippie/python:latest-amd64
+            webhippie/python:3.8-amd64
+            quay.io/webhippie/python:3.8-amd64
 
       - name: Build arm64
         id: arm64
         uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: latest/
-          file: latest/Dockerfile.arm64
+          context: v3.8/
+          file: v3.8/Dockerfile.arm64
           platforms: linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/python:latest-arm64
-            quay.io/webhippie/python:latest-arm64
+            webhippie/python:3.8-arm64
+            quay.io/webhippie/python:3.8-arm64
 
       - name: Build arm
         id: arm
         uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: latest/
-          file: latest/Dockerfile.arm
+          context: v3.8/
+          file: v3.8/Dockerfile.arm
           platforms: linux/arm/v7
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/python:latest-arm
-            quay.io/webhippie/python:latest-arm
+            webhippie/python:3.8-arm
+            quay.io/webhippie/python:3.8-arm
 
       - name: Hub manifest
         id: manifest1
@@ -112,8 +112,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
-          template: webhippie/python:latest-ARCH
-          target: webhippie/python:latest
+          template: webhippie/python:3.8-ARCH
+          target: webhippie/python:3.8
           ignore_missing: true
 
       - name: Quay manifest
@@ -124,8 +124,8 @@ jobs:
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
-          template: quay.io/webhippie/python:latest-ARCH
-          target: quay.io/webhippie/python:latest
+          template: quay.io/webhippie/python:3.8-ARCH
+          target: quay.io/webhippie/python:3.8
           ignore_missing: true
 
 ...
