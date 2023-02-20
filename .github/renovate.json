@@ -16,17 +16,7 @@
     },
     "packageRules": [
         {
-            "datasources": [
-                "docker"
-            ],
-            "updateTypes": [
-                "major",
-                "minor"
-            ],
-            "enabled": false
-        },
-        {
-            "description": "Update only python patch version",
+            "description": "Update tags without merge",
             "datasources": [
                 "github-tags"
             ],
@@ -34,10 +24,25 @@
                 "major",
                 "minor"
             ],
+            "enabled": false,
+            "automerge": false,
             "matchPackageNames": [
                 "python/cpython"
+            ]
+        },
+        {
+            "description": "Update tags without merge",
+            "datasources": [
+                "github-tags"
             ],
-            "enabled": false
+            "updateTypes": [
+                "patch"
+            ],
+            "enabled": true,
+            "automerge": true,
+            "matchPackageNames": [
+                "python/cpython"
+            ]
         }
     ]
 }
