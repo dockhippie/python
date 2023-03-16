@@ -44,5 +44,8 @@
                 "python/cpython"
             ]
         }
+    ],
+    "ignoreDeps": [
+        "docker/build-push-action"
     ]
 }
