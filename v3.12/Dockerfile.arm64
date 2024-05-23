@@ -1,0 +1,28 @@
+FROM ghcr.io/dockhippie/alpine:latest-arm64@sha256:5ef1665b9d7d104f93ca110f2e7ceb8677c1a4980b79f02a5ff9476cf2540864
+
+WORKDIR /srv/app
+
+# renovate: datasource=github-tags depName=python/cpython
+ENV PYTHON_VERSION=v3.12.3
+
+RUN apk update && \
+  apk upgrade && \
+  apk add build-base git expat-dev openssl-dev zlib-dev ncurses-dev bzip2-dev xz-dev sqlite-dev libffi-dev tcl-dev linux-headers gdbm-dev readline-dev && \
+  curl -sLo - https://www.python.org/ftp/python/${PYTHON_VERSION#v}/Python-${PYTHON_VERSION#v}.tgz | tar -xzf - -C /tmp && \
+  cd /tmp/Python-${PYTHON_VERSION#v} && \
+  ./configure --prefix=/usr --disable-rpath --enable-ipv6 --enable-loadable-sqlite-extensions --enable-shared --with-lto --with-computed-gotos --with-dbmliborder=gdbm:ndbm --with-system-expat --with-system-ffi --with-threads && \
+  make && \
+  make install && \
+  ln -sf /usr/bin/python3.12 /usr/bin/python && \
+  ln -sf /usr/bin/pip3.12 /usr/bin/pip && \
+  ln -sf /usr/bin/python3.12m-config /usr/bin/python-config && \
+  ln -sf /usr/bin/pydoc3.12 /usr/bin/pydoc && \
+  ln -sf /usr/bin/easy_install-3.12 /usr/bin/easy_install && \
+  ln -sf /usr/bin/idle3.12 /usr/bin/idle && \
+  cd && \
+  rm -rf /tmp/Python-${PYTHON_VERSION#v} && \
+  curl -sLo - https://bootstrap.pypa.io/get-pip.py | python && \
+  pip install -U pip tox && \
+  rm -rf /var/cache/apk/*
+
+COPY ./overlay /
