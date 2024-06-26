@@ -3,7 +3,7 @@ FROM ghcr.io/dockhippie/alpine:latest-amd64@sha256:86f09a70abbc6a572b557a221ad8d
 WORKDIR /srv/app
 
 # renovate: datasource=github-tags depName=python/cpython
-ENV PYTHON_VERSION=v3.11.3
+ENV PYTHON_VERSION=v3.11.9
 
 RUN apk update && \
   apk upgrade && \

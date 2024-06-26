@@ -1,9 +1,9 @@
-FROM ghcr.io/dockhippie/alpine:latest-arm64@sha256:40c758b2166fcd124e9db424904cd8ce7c78fa79b215ed9346e293cdd55b1ce7
+FROM ghcr.io/dockhippie/alpine:latest-arm64@sha256:5ef1665b9d7d104f93ca110f2e7ceb8677c1a4980b79f02a5ff9476cf2540864
 
 WORKDIR /srv/app
 
 # renovate: datasource=github-tags depName=python/cpython
-ENV PYTHON_VERSION=v3.11.9
+ENV PYTHON_VERSION=v3.12.3
 
 RUN apk update && \
   apk upgrade && \
@@ -13,12 +13,12 @@ RUN apk update && \
   ./configure --prefix=/usr --disable-rpath --enable-ipv6 --enable-loadable-sqlite-extensions --enable-shared --with-lto --with-computed-gotos --with-dbmliborder=gdbm:ndbm --with-system-expat --with-system-ffi --with-threads && \
   make && \
   make install && \
-  ln -sf /usr/bin/python3.11 /usr/bin/python && \
-  ln -sf /usr/bin/pip3.11 /usr/bin/pip && \
-  ln -sf /usr/bin/python3.11m-config /usr/bin/python-config && \
-  ln -sf /usr/bin/pydoc3.11 /usr/bin/pydoc && \
-  ln -sf /usr/bin/easy_install-3.11 /usr/bin/easy_install && \
-  ln -sf /usr/bin/idle3.11 /usr/bin/idle && \
+  ln -sf /usr/bin/python3.12 /usr/bin/python && \
+  ln -sf /usr/bin/pip3.12 /usr/bin/pip && \
+  ln -sf /usr/bin/python3.12m-config /usr/bin/python-config && \
+  ln -sf /usr/bin/pydoc3.12 /usr/bin/pydoc && \
+  ln -sf /usr/bin/easy_install-3.12 /usr/bin/easy_install && \
+  ln -sf /usr/bin/idle3.12 /usr/bin/idle && \
   cd && \
   rm -rf /tmp/Python-${PYTHON_VERSION#v} && \
   curl -sLo - https://bootstrap.pypa.io/get-pip.py | python && \
