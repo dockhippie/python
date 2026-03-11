@@ -1,7 +1,7 @@
 ---
 repository:
   name: python
-  description: Docker images for python
+  description: Docker images for Python
   topics: docker, image
 
   private: false
