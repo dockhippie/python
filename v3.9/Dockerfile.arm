@@ -1,4 +1,4 @@
-FROM ghcr.io/dockhippie/alpine:latest-arm@sha256:96935222d1aa3a341e482006a8785a83c2b6dfff4821e433fe694ff733b38d41
+FROM ghcr.io/dockhippie/alpine:latest-arm@sha256:360f43f024c05504de66535928f87fe25100a1f7016f6afd8bfc646f0ff4453f
 
 WORKDIR /srv/app
 
@@ -21,7 +21,7 @@ RUN apk update && \
   ln -sf /usr/bin/idle3.9 /usr/bin/idle && \
   cd && \
   rm -rf /tmp/Python-${PYTHON_VERSION#v} && \
-  curl -sLo - https://bootstrap.pypa.io/get-pip.py | python && \
+  curl -sLo - https://bootstrap.pypa.io/pip/3.9/get-pip.py | python && \
   pip install -U pip tox && \
   rm -rf /var/cache/apk/*
 
